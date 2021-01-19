@@ -7,6 +7,6 @@ print(b.is_digit(a))
 print(b.is_between_100_and_999(a))
 print(b.is_duplicated_number(a)) ##
 '''
-ans = 'n'
-if ans == 'y' or ans == 'Y':
-    print('true')
+ans = ['no', 'NO', 'No', 'nO', 'n', 'N', 'n01']
+for a in ans:
+    print(b.is_no(a))

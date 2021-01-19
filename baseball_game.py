@@ -66,7 +66,7 @@ def is_yes(one_more_input):
 
 
 def is_no(one_more_input):
-    if one_more_input.upper() == 'N' or one_more_input == 'NO':
+    if one_more_input.upper() == 'N' or one_more_input.upper() == 'NO':
         return True
     else:
         return False
