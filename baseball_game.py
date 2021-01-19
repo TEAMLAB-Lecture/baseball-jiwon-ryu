@@ -4,8 +4,6 @@ import random
 
 
 def get_random_number():
-    # Helper Function - 지우지 말 것
-    # 100부터 999까지 수를 램덤하게 반환함
     return random.randrange(100, 1000)
 
 
@@ -102,9 +100,6 @@ def main():
             print("Thank you for using this program")
             print("End of the Game")
             return
-
-            
-    # ==================================
     
 
 if __name__ == "__main__":
