@@ -26,7 +26,7 @@ def is_between_100_and_999(user_input_number):
 
 
 def is_duplicated_number(three_digit):
-    if list(set(list(three_digit))) == list(three_digit):
+    if len(list(set(list(three_digit)))) == len(list(three_digit)):
         return False
     else:
         return True
@@ -59,14 +59,14 @@ def get_strikes_or_ball(user_input_number, random_number):
 
 
 def is_yes(one_more_input):
-    if one_more_input.upper() == 'Y' or 'YES':
+    if one_more_input.upper() == 'Y' or one_more_input.upper() == 'YES':
         return True
     else:
         return False
 
 
 def is_no(one_more_input):
-    if one_more_input.upper == 'N' or 'NO':
+    if one_more_input.upper() == 'N' or one_more_input == 'NO':
         return True
     else:
         return False
@@ -89,18 +89,19 @@ def main():
             user_input = input('Input guess number : ')
 
         strikes, balls = get_strikes_or_ball(user_input, random_number)
-        print(f'Strikes : {strikes} , Balls : {balls} ')
+        print(f'Strikes : {strikes} , Balls : {balls}')
 
     if strikes == 3:
         response = input('You win, one more(Y/N)?')
         while is_yes(response) == False and is_no(response) == False:
             print('Wrong Input')
             response = input('You win, one more(Y/N)?')
-        if is_yes(response):
+        if is_yes(response) == True:
             main()
         else:
             print("Thank you for using this program")
             print("End of the Game")
+            return
 
             
     # ==================================
