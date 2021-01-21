@@ -87,7 +87,7 @@ def main():
             while is_validated_number(user_input) == False:
                 if user_input == '0':
                     play = False
-                    breakå
+                    break
                 print('Wrong Input, Input again')
                 user_input = input('Input guess number : ')
             if play == False:
