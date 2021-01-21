@@ -79,7 +79,7 @@ def main():
     random_number = str(get_not_duplicated_three_digit_number())
     print("Random Number is : ", random_number)
     user_input = 999
-    
+
     strikes = 0
     while strikes != 3:
         user_input = input('Input guess number : ')
@@ -97,7 +97,7 @@ def main():
     if strikes == 3:
         response = input('You win, one more(Y/N)?')
         while is_yes(response) == False and is_no(response) == False:
-            print('Wrong Input')
+            print('Wrong Input, Input again')
             response = input('You win, one more(Y/N)?')
 
         if is_yes(response) == True:
