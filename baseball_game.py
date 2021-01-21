@@ -91,9 +91,17 @@ def main():
 
     if strikes == 3:
         response = input('You win, one more(Y/N)? ')
-        while is_yes(response) == False and is_no(response) == False:
-            print('Wrong Input')
+        # while is_yes(response) == False and is_no(response) == False:
+        #     print('Wrong Input')
+        #     response = input('You win, one more(Y/N)? ')
+        while True:
             response = input('You win, one more(Y/N)? ')
+            if is_yes(response) == True:
+                break
+            if is_no(response) == True:
+                break
+            print('Wrong Input')
+                    
         if is_yes(response) == True:
             main()
         else:
