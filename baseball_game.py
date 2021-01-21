@@ -45,18 +45,18 @@ def get_not_duplicated_three_digit_number():
 
 def get_strikes_or_ball(user_input_number: str, random_number: str):
     result = [0, 0] # strikes, balls
-    # for digit in user_input_number:
-    #     if digit in random_number:
-    #         if user_input_number.find(digit) == random_number.find(digit):
-    #             result[0] += 1 # strikes
-    #         else:
-    #             result[1] += 1 # balls
-    for i in range(len(user_input_number)):
-        if user_input_number[i] == random_number[i]:
-            result[0] += 1
-        elif user_input_number[i] in random_number:
-            result[1] += 1
-    return result
+    for digit in user_input_number:
+        if digit in random_number:
+            if user_input_number.find(digit) == random_number.find(digit):
+                result[0] += 1 # strikes
+            else:
+                result[1] += 1 # balls
+    # for i in range(len(user_input_number)):
+    #     if user_input_number[i] == random_number[i]:
+    #         result[0] += 1
+    #     elif user_input_number[i] in random_number:
+    #         result[1] += 1
+    # return result
 
 
 def is_yes(one_more_input: str): # in으로 고쳐도 될듯
