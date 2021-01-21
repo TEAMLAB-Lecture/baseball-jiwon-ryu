@@ -8,10 +8,9 @@ def get_random_number():
 
 
 def is_digit(user_input_number: str):
-    try:
-        int(user_input_number)
+    if user_input_number.isdigit() == True:
         return True
-    except ValueError:
+    else:
         return False
 
 
@@ -75,37 +74,77 @@ def is_no(one_more_input):
 
 
 def main():
-    print("Play Baseball")
-    random_number = str(get_not_duplicated_three_digit_number())
-    print("Random Number is : ", random_number)
-    user_input = 999
-
-    strikes = 0
-    while strikes != 3:
-        user_input = input('Input guess number : ')
-        while is_validated_number(user_input) == False:
-            if user_input == '0':
-                print("Thank you for using this program")
-                print("End of the Game")
-                return
-            print('Wrong Input, Input again')
+    play = True
+    while play:
+        print('Play Baseball')
+        user_input = 999
+        random_number = str(get_not_duplicated_three_digit_number())
+        print('Random Number is : ', random_number)
+        
+        strikes = 0
+        while strikes != 3:
             user_input = input('Input guess number : ')
-
-        strikes, balls = get_strikes_or_ball(user_input, random_number)
-        print(f'Strikes : {strikes} , Balls : {balls}')
-
-    if strikes == 3:
+            while is_validated_number(user_input) == False:
+                if user_input == '0':
+                    play = False
+                    break
+                print('Wrong Input, Input again')
+                user_input = input('Input guess number : ')
+            if play == False:
+                break
+            strikes, balls = get_strikes_or_ball(user_input, random_number)
+            print(f'Strikes : {strikes} , Balls : {balls}')
+        if play == False:
+            break
         response = input('You win, one more(Y/N)?')
-        while is_yes(response) == False and is_no(response) == False:
-            print('Wrong Input, Input again')
-            response = input('You win, one more(Y/N)?')
+        while True:
+            if is_yes(response):
+                break
+            elif is_no(response):
+                play = False
+                break
+            else:
+                print('Wrong Input')
+                response = input('You win, one more(Y/N)?')
+                      
+    print('Thank you for using the program')
+    print('End of the Game')
 
-        if is_yes(response) == True:
-            main()
-        else:
-            print("Thank you for using this program")
-            print("End of the Game")
-            return
+    # 숫자 입력과 판단 반복 (strike 3 될때까지)
+    # strike == 3 -> 진행 의사 묻기 -> 게임 재실행 or out
+
+# def main():
+#     print("Play Baseball")
+#     random_number = str(get_not_duplicated_three_digit_number())
+#     print("Random Number is : ", random_number)
+#     user_input = 999
+
+#     strikes = 0
+#     while strikes != 3:
+#         user_input = input('Input guess number : ')
+#         while is_validated_number(user_input) == False:
+#             if user_input == '0':
+#                 print("Thank you for using this program")
+#                 print("End of the Game")
+#                 return
+#             print('Wrong Input, Input again')
+#             user_input = input('Input guess number : ')
+
+#         strikes, balls = get_strikes_or_ball(user_input, random_number)
+#         print(f'Strikes : {strikes} , Balls : {balls}')
+
+#     if strikes == 3:
+#         response = input('You win, one more(Y/N)?')
+#         while is_yes(response) == False and is_no(response) == False:
+#             print('Wrong Input, Input again')
+#             response = input('You win, one more(Y/N)?')
+
+#         if is_yes(response) == True:
+#             main()
+#         else:
+#             print("Thank you for using this program")
+#             print("End of the Game")
+#             return
     
 
 if __name__ == "__main__":
