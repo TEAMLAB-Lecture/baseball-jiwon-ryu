@@ -46,12 +46,17 @@ def get_not_duplicated_three_digit_number():
 
 def get_strikes_or_ball(user_input_number: str, random_number: str):
     result = [0, 0] # strikes, balls
-    for digit in user_input_number:
-        if digit in random_number:
-            if user_input_number.find(digit) == random_number.find(digit):
-                result[0] += 1 # strikes
-            else:
-                result[1] += 1 # balls
+    # for digit in user_input_number:
+    #     if digit in random_number:
+    #         if user_input_number.find(digit) == random_number.find(digit):
+    #             result[0] += 1 # strikes
+    #         else:
+    #             result[1] += 1 # balls
+    for i in range(len(user_input_number)):
+        if user_input_number[i] == random_number[i]:
+            result[0] += 1
+        elif user_input_number[i] in random_number:
+            result[1] += 1
     return result
 
 
@@ -73,7 +78,8 @@ def main():
     print("Play Baseball")
     random_number = str(get_not_duplicated_three_digit_number())
     print("Random Number is : ", random_number)
-
+    user_input = 999
+    
     strikes = 0
     while strikes != 3:
         user_input = input('Input guess number : ')
@@ -89,10 +95,10 @@ def main():
         print(f'Strikes : {strikes} , Balls : {balls}')
 
     if strikes == 3:
-        response = input('You win, one more (Y/N) ?')
+        response = input('You win, one more(Y/N)?')
         while is_yes(response) == False and is_no(response) == False:
             print('Wrong Input')
-            response = input('You win, one more (Y/N) ?')
+            response = input('You win, one more(Y/N)?')
 
         if is_yes(response) == True:
             main()
