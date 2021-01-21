@@ -22,7 +22,6 @@ def is_between_100_and_999(user_input_number: str):
         return False
         
 
-
 def is_duplicated_number(three_digit: str):
     if len(list(set(list(three_digit)))) == len(list(three_digit)):
         return False
@@ -90,18 +89,11 @@ def main():
         print(f'Strikes : {strikes} , Balls : {balls}')
 
     if strikes == 3:
-        response = input('You win, one more(Y/N)? ')
-        # while is_yes(response) == False and is_no(response) == False:
-        #     print('Wrong Input')
-        #     response = input('You win, one more(Y/N)? ')
-        while True:
-            response = input('You win, one more(Y/N)? ')
-            if is_yes(response) == True:
-                break
-            if is_no(response) == True:
-                break
+        response = input('You win, one more (Y/N) ?')
+        while is_yes(response) == False and is_no(response) == False:
             print('Wrong Input')
-                    
+            response = input('You win, one more (Y/N) ?')
+
         if is_yes(response) == True:
             main()
         else:
